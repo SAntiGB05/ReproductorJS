@@ -11,14 +11,14 @@ const trackTitle = document.getElementById('player__song');
 const trackArtist = document.getElementById('player__artist');
 const trackImage = document.getElementById('player__img');
 
-let currentTrackIndex = 0;
-audio.src = playList[currentTrackIndex].song; 
+let index = 0;
+audio.src = playList[index].song; 
 updateTrackInfo(); 
 
 function updateTrackInfo() {
-    trackTitle.textContent = playList[currentTrackIndex].title;
-    trackArtist.textContent = playList[currentTrackIndex].artist;
-    trackImage.src = playList[currentTrackIndex].img;
+    trackTitle.textContent = playList[index].title;
+    trackArtist.textContent = playList[index].artist;
+    trackImage.src = playList[index].img;
 }
 
 
@@ -34,13 +34,13 @@ play.addEventListener('click', () => {
     }
 });
 
-rewind.addEventListener('click', () => {
-    audio.currentTime = Math.max(0, audio.currentTime - 10);
-});
+rewind.addEventListener('click', () => 
+    audio.currentTime -= 10
+);
 
-forward.addEventListener('click', () => {
-    audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
-});
+forward.addEventListener('click', () => 
+    audio.currentTime += 10
+);
 
 stop.addEventListener('click', () => {
     audio.pause();
@@ -48,8 +48,8 @@ stop.addEventListener('click', () => {
 });
 
 next.addEventListener('click', () => {
-    currentTrackIndex = (currentTrackIndex + 1) % playList.length; 
-    audio.src = playList[currentTrackIndex].song; 
+    index = (index + 1) % playList.length; 
+    audio.src = playList[index].song; 
     updateTrackInfo(); 
     audio.play();
     play.classList.remove('bx-play');
@@ -57,8 +57,8 @@ next.addEventListener('click', () => {
 });
 
 former.addEventListener('click', () => {
-    currentTrackIndex = (currentTrackIndex - 1 + playList.length) % playList.length; 
-    audio.src = playList[currentTrackIndex].song; 
+    index = (index - 1 + playList.length) % playList.length; 
+    audio.src = playList[index].song; 
     updateTrackInfo(); 
     audio.play();
     play.classList.remove('bx-play');
