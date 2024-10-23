@@ -5,20 +5,20 @@
 }
 
 body {
-    width: 100vh;
+    width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background:url('bgBody.avif');
+    background-color: #1A3636;
 }
 
 .container-player {
     width: 18rem;
     height: 25rem;
     border-radius: 10px;
-    background-color: #7a839a;
-    box-shadow: 4px 4px 5px #012b61;
+    background-color: #40534C;
+    box-shadow: 4px 4px 5px #455a52;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,7 +27,7 @@ body {
 
 .container-player > h1 {
     font-size: 2rem;
-    color: #b9cfe9;
+    color: #D6BD98;
 }
 
 .container-album {
@@ -42,6 +42,14 @@ body {
     height: 10rem;
     border-radius: 50%;
     margin: 1rem 0 1rem 0;
+}
+
+.container-album > h2 {
+    color: #D6BD98;
+}
+
+.container-album > h3 {
+    color: #D6BD98;
 }
 
 .container-player > .controls {
@@ -68,5 +76,5 @@ body {
 }
 
 .player_controls > i:hover {
-    color: #17e417
+    color: #D6BD98;
 }
